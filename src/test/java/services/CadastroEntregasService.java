@@ -11,8 +11,8 @@ import static io.restassured.RestAssured.given;
 public class CadastroEntregasService {
     EntregaModel entregaModel = new EntregaModel();
     Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-    Response response;
-    String baseUrl = "http://localhost:8081/";
+    public Response response;
+    String baseUrl = "http://localhost:8081";
 
     public void setFieldsDelivery(String field, String value) {
         switch (field) {

@@ -11,7 +11,7 @@ Feature: Delivery Registration
       | numeroPedido   | 1            |
       | nomeEntregador | Ana Silva    |
       | statusEntrega  | EM_SEPARACAO |
-      | dataEntrega    | 2024-08-22
+      | dataEntrega    | 2024-08-22   |
     When I send the request to the endpoint "/entregas" to register a delivery
     Then response status is 201
 
