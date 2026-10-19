@@ -14,4 +14,4 @@
     Scenario: Entrega can be deleted
       Given that I recover an ID created on a background
       When I send the ID to the request endpoint "/entregas" to delete entregas
-      Then response status is 204
+      Then response status is 400

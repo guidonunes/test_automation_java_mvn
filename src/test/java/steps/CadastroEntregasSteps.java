@@ -44,13 +44,11 @@ public class CadastroEntregasSteps {
 
     @Given("that I recover an ID created on a background")
     public void thatIRecoverAnIDCreatedOnABackground() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        cadastroEntregasService.retrieveId();
     }
 
     @When("I send the ID to the request endpoint {string} to delete entregas")
     public void iSendTheIDToTheRequestEndpointToDeleteEntregas(String endpoint) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        cadastroEntregasService.deleteDelivery(endpoint);
     }
 }

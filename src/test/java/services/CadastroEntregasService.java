@@ -13,6 +13,7 @@ public class CadastroEntregasService {
     public Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     public Response response;
     String baseUrl = "http://localhost:8081";
+    String idDelivery;
 
     public void setFieldsDelivery(String field, String value) {
         switch (field) {
@@ -38,4 +39,18 @@ public class CadastroEntregasService {
 
     }
 
+    public void retrieveId() {
+        idDelivery = String.valueOf(gson.fromJson(response.jsonPath().prettify(), EntregaModel.class).getNumeroPedido());
+    }
+
+    public void deleteDelivery(String endpoint) {
+        String url = baseUrl + endpoint;
+
+        response = given().contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .when()
+                .delete(url)
+                .then()
+                .extract().response();
+    }
 }
