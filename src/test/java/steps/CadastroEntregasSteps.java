@@ -1,9 +1,11 @@
 package steps;
 
 import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import model.ErrorMessageModel;
 import org.junit.Assert;
 import services.CadastroEntregasService;
 
@@ -30,5 +32,13 @@ public class CadastroEntregasSteps {
     @Then("response status is {int}")
     public void responseStatusIs(int statusCode) {
         Assert.assertEquals(statusCode, cadastroEntregasService.response.statusCode());
+    }
+
+    @And("the response error should be {string}")
+    public void theResponseErrorShouldBe(String message) {
+        ErrorMessageModel errorMessageModel = cadastroEntregasService.gson.fromJson(
+                cadastroEntregasService.response.jsonPath().prettify(), ErrorMessageModel.class
+        );
+        Assert.assertEquals(errorMessageModel.getMessage(), message);
     }
 }

@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class CadastroEntregasService {
     EntregaModel entregaModel = new EntregaModel();
-    Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    public Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     public Response response;
     String baseUrl = "http://localhost:8081";
 

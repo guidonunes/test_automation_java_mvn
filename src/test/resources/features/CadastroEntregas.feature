@@ -24,3 +24,4 @@ Feature: Delivery Registration
       | dataEntrega    | 2024-08-22   |
     When I send the request to the endpoint "/entregas" to register a delivery
     Then response status is 400
+    And the response error should be "Dados fornecidos estão em formato inválido."
