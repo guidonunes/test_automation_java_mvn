@@ -15,3 +15,12 @@ Feature: Delivery Registration
     When I send the request to the endpoint "/entregas" to register a delivery
     Then response status is 201
 
+  Scenario: Delivery Registration Failure after submitting invalid statusEntrega
+    Given the following registration data:
+      | campo          | valor        |
+      | numeroPedido   | 1            |
+      | nomeEntregador | Ana Silva    |
+      | statusEntrega  | EM_VOO       |
+      | dataEntrega    | 2024-08-22   |
+    When I send the request to the endpoint "/entregas" to register a delivery
+    Then response status is 400
