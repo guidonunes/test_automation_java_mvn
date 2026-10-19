@@ -1,5 +1,6 @@
 package steps;
 
+import com.networknt.schema.ValidationMessage;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,8 +10,10 @@ import model.ErrorMessageModel;
 import org.junit.Assert;
 import services.CadastroEntregasService;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class CadastroEntregasSteps {
 
@@ -50,5 +53,16 @@ public class CadastroEntregasSteps {
     @When("I send the ID to the request endpoint {string} to delete entregas")
     public void iSendTheIDToTheRequestEndpointToDeleteEntregas(String endpoint) {
         cadastroEntregasService.deleteDelivery(endpoint);
+    }
+
+    @And("the selected contract will be {string}")
+    public void theSelectedContractWillBe(String contract) throws IOException {
+        cadastroEntregasService.setContract(contract);
+    }
+
+    @Then("the request's response should match the selected contract")
+    public void theRequestSResponseShouldMatchTheSelectedContract() throws IOException {
+      Set<ValidationMessage> validateResponse = cadastroEntregasService.validateResponseAgainstSchema();
+      Assert.assertTrue("Invalid contract. Error: " + validateResponse, validateResponse.isEmpty());
     }
 }
