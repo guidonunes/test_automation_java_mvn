@@ -1,10 +1,11 @@
 #language: en
 
+@regression @smoke
 Feature: Delivery Registration
   As an API User
   I want to register a new delivery
   To save it correctly
-
+  @default @smoke
   Scenario: Delivery Registration Successful
     Given the following registration data:
       | campo          | valor        |
