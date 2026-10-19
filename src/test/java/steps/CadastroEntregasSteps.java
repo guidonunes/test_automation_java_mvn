@@ -41,4 +41,16 @@ public class CadastroEntregasSteps {
         );
         Assert.assertEquals(errorMessageModel.getMessage(), message);
     }
+
+    @Given("that I recover an ID created on a background")
+    public void thatIRecoverAnIDCreatedOnABackground() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("I send the ID to the request endpoint {string} to delete entregas")
+    public void iSendTheIDToTheRequestEndpointToDeleteEntregas(String endpoint) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
