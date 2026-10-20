@@ -1,5 +1,6 @@
 #language: en
 
+  @regression
   Feature: Validate entrega contract registration
     Scenario: ValidDelivery Registration Successful
       Given the following registration data:

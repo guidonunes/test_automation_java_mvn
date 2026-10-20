@@ -1,5 +1,5 @@
 #language: en
-
+  @regression
   Feature: Delete entrega
     Background: Delivery Registration Successful
       Given the following registration data:
